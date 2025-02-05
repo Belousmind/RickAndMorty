@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect } from 'react'
-import './App.css'
+import { useState, useRef, useEffect } from 'react';
+import './App.css';
+import CharacterCard from './characterCard/characterCard';
 
 function App() {
   const [query, setQuery] = useState("");
@@ -71,9 +72,17 @@ function App() {
 
     {!found && <p>Not found! Try one new request</p>}
 
+    <div>
+      {
+        characters.map(char => {
+          return <CharacterCard key={char.id} {...char}/>
+        })
+      }
+    </div>
     </>
-
   )
 }
 
 export default App;
+
+// id, name, species, status, created, url  
