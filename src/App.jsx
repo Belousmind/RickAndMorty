@@ -4,12 +4,35 @@ import './App.css'
 function App() {
   const [query, setQuery] = useState("");
   const inputRef = useRef(null);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     inputRef.current.focus();
   }, []);
 
-  console.log(query)
+  useEffect(() => {
+    if (query.length < 3) {
+      setCharacters([]);
+      return;
+    }
+
+    const getCharacters = async () => {
+      const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${query}`);
+
+      if (!response.ok) {
+        throw new Error(`Could not fetch, status: ${response.status}`);
+      }
+      const data = await response.json();
+      setCharacters(data.results || []);
+    }
+
+    const timeoutId = setTimeout(getCharacters, 500);
+
+    return () => clearTimeout(timeoutId);
+
+  }, [query]);
+
+  console.log(characters);
   
   return (
     <input
