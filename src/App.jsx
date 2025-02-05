@@ -6,7 +6,8 @@ function App() {
   const inputRef = useRef(null);
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const [found, setFound] = useState(true);
+  
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -15,6 +16,7 @@ function App() {
     if (query.length < 3) {
       setCharacters([]);
       setLoading(false);
+      setFound(true);
       return;
     }
   
@@ -27,6 +29,7 @@ function App() {
         if (!response.ok) {
           if (response.status === 404) {
             console.log("Not found");
+            setFound(false);
             setCharacters([]);
           } else {
             console.log(`Could not fetch, status: ${response.status}`);
@@ -34,10 +37,12 @@ function App() {
           }
         } else {
           const data = await response.json();
+          setFound(true);
           setCharacters(data.results || []);
         }
       } catch (error) {
         console.error("Network error:", error);
+        setFound(false);
         setCharacters([]);
       } finally {
         setLoading(false);
@@ -63,6 +68,9 @@ function App() {
       onChange={(e) => setQuery(e.target.value)} />
 
     {loading && <p>Loading...</p>}
+
+    {!found && <p>Not found! Try one new request</p>}
+
     </>
 
   )
