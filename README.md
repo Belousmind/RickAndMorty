@@ -1,8 +1,8 @@
 # 🚀 Rick and Morty Character Search | Test task
 
 ### 📸 Демонстрация
-🔗 [Live Demo](https://belousmind.github.io/RickAndMorty/index.html) <br/>
-🔗 [Репозиторий](https://github.com/Belousmind/RickAndMorty)
+🔗 <a href="https://belousmind.github.io/RickAndMorty/index.html" target="_blank">Live Demo</a> <br/>
+🔗 <a href="https://github.com/Belousmind/RickAndMorty" target="_blank">Репозиторий</a>
 
 ### 📌 Функциональность
 ✅ Автофокус на поле ввода при загрузке страницы <br/>
