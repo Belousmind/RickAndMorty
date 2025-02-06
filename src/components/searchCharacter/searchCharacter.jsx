@@ -29,7 +29,6 @@ const SearchCharacter = () => {
   
         if (!response.ok) {
           if (response.status === 404) {
-            console.log("Not found");
             setFound(false);
             setCharacters([]);
           } else {
@@ -56,29 +55,31 @@ const SearchCharacter = () => {
   
   }, [query]);
   
-
-  console.log(characters.length);
-  
   return (
     <>
-      <input
-        ref={inputRef}
-        type="text"
-        value={query}
-        placeholder="Search characters..."
-        onChange={(e) => setQuery(e.target.value)} />
+      <div className="serach-panel">
+        <input
+            ref={inputRef}
+            type="text"
+            value={query}
+            placeholder="Search characters..."
+            onChange={(e) => setQuery(e.target.value)} />
 
-      {loading && <p>Loading...</p>}
+          {loading && <p>Loading...</p>}
 
-      {!found && <p>Not found! Try another request</p>}
+          {!found && <p>Not found! Try another request</p>}
 
-      <div className='cards'>
-        {
-          characters.map(char => {
-            return <CharacterCard key={char.id} {...char}/>
-          })
-        }
+          {characters.length > 0 && <p className='characters-amount'>Found characters: <span>{characters.length}</span></p>} 
       </div>
+
+      {characters.length > 0 && 
+            <div className='cards'>
+              {
+                characters.map(char => {
+                  return <CharacterCard key={char.id} {...char}/>
+                })
+              }
+          </div>}
     </>
   )
 }

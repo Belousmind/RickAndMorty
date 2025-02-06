@@ -13,7 +13,9 @@ input {
 
   display: block;
   padding: 19px 25px;
- 
+  margin-bottom: 20px;
+  width: 100%;
+
   border: none;
   outline: none;
   filter: drop-shadow(0px 7px 12px rgba(100, 100, 111, 0.20));
@@ -24,7 +26,7 @@ input::placeholder {
   color: #656EC2;
 }
 
-input,
+.serach-panel,
 .cards {
   width: 100%;
   max-width: 626px;
@@ -34,6 +36,9 @@ input,
   flex-direction: column;
   gap: 20px;
 }
+.serach-panel {
+  margin-bottom: 68px;
+}
 
 @media (min-width: 900px) {
   .cards {
@@ -41,4 +46,11 @@ input,
     grid-template-columns: repeat(6, 1fr);
     max-width: 1600px;
   }
+}
+.characters-amount {
+  font-family: Montserrat;
+  font-size: 1rem;
+  text-align: left;
+  margin-left: 36px;
+  color: #282626;
 }
