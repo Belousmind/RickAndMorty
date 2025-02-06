@@ -16,6 +16,7 @@
 
 ### 🛠️ Используемые технологии
 ⚛ React <br/>
+⚡ Vite <br/>
 🌐 Fetch API — для запроса данных <br/>
 🎨 CSS (Grid, Flexbox, Pseudo-classes) <br/>
 📡 Rick and Morty API (https://rickandmortyapi.com/) <br/>
