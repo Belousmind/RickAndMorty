@@ -12,7 +12,12 @@ main {
   align-items: center;
   justify-content: center;
   padding: 20px 12px;
-  
+  margin-top: 20vw;
+  margin-top: 20px;
 }
 
-
+@media (min-width: 900px) {
+  main {
+    margin-top: 128px;
+  }
+}
