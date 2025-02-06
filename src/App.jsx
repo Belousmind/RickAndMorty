@@ -57,29 +57,29 @@ function App() {
   }, [query]);
   
 
-  console.log(characters);
+  console.log(characters.length);
   
   return (
-    <>
-    <input
-      ref={inputRef}
-      type="text"
-      value={query}
-      placeholder="Search characters..."
-      onChange={(e) => setQuery(e.target.value)} />
+    <main>
+      <input
+        ref={inputRef}
+        type="text"
+        value={query}
+        placeholder="Search characters..."
+        onChange={(e) => setQuery(e.target.value)} />
 
-    {loading && <p>Loading...</p>}
+      {loading && <p>Loading...</p>}
 
-    {!found && <p>Not found! Try one new request</p>}
+      {!found && <p>Not found! Try another request</p>}
 
-    <div>
-      {
-        characters.map(char => {
-          return <CharacterCard key={char.id} {...char}/>
-        })
-      }
-    </div>
-    </>
+      <div className='cards'>
+        {
+          characters.map(char => {
+            return <CharacterCard key={char.id} {...char}/>
+          })
+        }
+      </div>
+    </main>
   )
 }
 

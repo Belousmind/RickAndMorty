@@ -13,7 +13,7 @@ const CharacterCard = ({name, species, status, created, url}) => {
   };
   
   return (
-    <div className="caracter-card">
+    <div className="character-card">
       <a target="_blank" href={url}><span className="name">{name}</span> - <span className="speices">{species}</span></a>
       <p className="status">Status: <span className={`${status.toLowerCase()}`}>{status}</span></p>
       <p className="created">Created: {formatDate(created)}</p>
