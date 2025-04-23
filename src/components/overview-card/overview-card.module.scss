@@ -1,0 +1,12 @@
+.card {
+  border: 1px solid grey;
+  border-radius: 12px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  margin: 0
+}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import Header from "@/components/header/header";
 
 export const metadata: Metadata = {
   title: "Rick and Morty",
@@ -13,7 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
