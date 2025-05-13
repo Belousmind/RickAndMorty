@@ -1,12 +1,13 @@
 import OverviewCard from "@/components/overview-card/overview-card";
 import { fetchCounts } from "@/lib/fetchCounts";
+import styles from './main.module.scss'
 
 export default async function Home() {
   const cards = await fetchCounts();
 
   return (
     <>
-      <h1>Rick and Morty Universe</h1>
+      <h1 className={styles.title}>Rick & Morty Universe</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ab error,
         laboriosam ducimus voluptates soluta dolor eius tempore corporis maxime,

@@ -1,0 +1,19 @@
+.character-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: black;
+  padding: 12px 8px;
+  border: 1px solid black;
+}
+
+.character-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.title {
+  margin: 0;
+}

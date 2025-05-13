@@ -11,35 +11,34 @@ type Params = {
   };
 };
 
-type Episode = {
+type Location = {
   id: number;
   name: string;
-  air_date: string;
-  episode: string;
-  characters: string[];
-  url: string;
-  created: string;
+  type: string;
+  dimension: string;
+  residents: string[];
 };
 
-export default async function Episode({ params }: Params) {
+export default async function Location({ params }: Params) {
+
   const resolvedParams = await params;
   const { id } = resolvedParams;
 
-  const data: Episode = await fetchData(`episode/${id}`);
-  const characters = await fetchMultiple(data.characters);
+  const data: Location = await fetchData(`location/${id}`);
+  const residents = await fetchMultiple(data.residents);
 
   return (
-    <div>
-      <span>{data.episode}</span>
-      <span>{data.name}</span>
-      <span>{data.air_date}</span>
-      <div className={styles.list}>
-        {characters.map((item: CharacterCardProps) => (
+    <div className={styles.container}>
+      <h1>Name: {data.name}</h1>
+      <span>Type: {data.type}</span>
+      <span>Dimension: {data.dimension}</span>
+      <div className="list">
+        {residents.map((item: CharacterCardProps) => (
           <CharacterCard
             key={item.id}
-            id={item.id}
             name={item.name}
             status={item.status}
+            id={item.id}
             species={item.species}
             image={item.image}
           />

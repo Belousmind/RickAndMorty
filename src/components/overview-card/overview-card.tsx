@@ -13,12 +13,13 @@ export default function OverviewCard({
   route,
 }: OverviewCardProps) {
   return (
-    <div className={styles.card}>
-      <h3 className={styles.title}>{title}</h3>
+    <Link className={styles.card} href={`/${route}`}>
       <span className={styles.amount}>{amount}</span>
-      <Link className={styles.link} href={`/${route}`}>
-        See all
-      </Link>
-    </div>
+      <h3 className={styles.title}>{title} [ ↗ ]</h3>
+
+      {/* <Link className={styles.link} > */}
+      {/* See all
+      </Link> */}
+    </Link>
   );
 }
