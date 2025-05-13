@@ -4,6 +4,9 @@ import Header from "@/components/header/header";
 export const metadata: Metadata = {
   title: "Rick and Morty",
   description: "",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
