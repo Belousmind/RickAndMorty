@@ -1,4 +1,4 @@
-import fetchData from "@/lib/fetchData";
+import {fetchData} from "@/lib/fetchData";
 import { fetchMultiple } from "@/lib/fetchMultiple";
 import CharacterCard, {
   CharacterCardProps,

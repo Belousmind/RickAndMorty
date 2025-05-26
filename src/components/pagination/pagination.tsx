@@ -1,5 +1,6 @@
 "use client";
-import { useRouter } from "next/navigation";
+
+import { useRouter, useSearchParams } from "next/navigation";
 
 type PaginationProps = {
   currentPage: number;
@@ -15,9 +16,13 @@ export default function Pagination({
   maxVisiblePages = 5,
 }: PaginationProps) {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const goToPage = (page: number) => {
-    router.push(`${basePath}?page=${page}`);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", String(page));
+
+    router.push(`${basePath}?${params.toString()}`);
   };
 
   const getPageNumbers = () => {
@@ -43,10 +48,7 @@ export default function Pagination({
 
   return (
     <div>
-      <button
-        onClick={() => goToPage(currentPage - 1)}
-        disabled={currentPage <= 1}
-      >
+      <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage <= 1}>
         Prev
       </button>
 
@@ -70,10 +72,7 @@ export default function Pagination({
         </>
       )}
 
-      <button
-        onClick={() => goToPage(currentPage + 1)}
-        disabled={currentPage >= totalPages}
-      >
+      <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage >= totalPages}>
         Next
       </button>
     </div>

@@ -1,4 +1,4 @@
-import fetchData from "@/lib/fetchData";
+import { fetchPage } from "@/lib/fetchData";
 import LocationCard, {
   LocationCardProps,
 } from "@/components/location-card/location-card";
@@ -10,7 +10,7 @@ type Props = {
 
 export default async function LocationPage({ searchParams }: Props) {
   const page = Number(searchParams.page) || 1;
-  const data = await fetchData("location", page);
+  const data = await fetchPage("location", page);
 
   return (
     <>

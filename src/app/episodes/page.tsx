@@ -1,4 +1,4 @@
-import fetchData from "@/lib/fetchData";
+import { fetchPage } from "@/lib/fetchData";
 import EpisodeCard, {
   EpisodeCardProps,
 } from "@/components/episode-card/episode-card";
@@ -11,7 +11,7 @@ type Props = {
 
 export default async function EpisodesPage({ searchParams }: Props) {
   const page = Number(searchParams.page) || 1;
-  const data = await fetchData("episode", page);
+  const data = await fetchPage("episode", page);
 
   return (
     <>
