@@ -1,4 +1,4 @@
-import {fetchData} from "@/lib/fetchData";
+import { fetchData } from "@/lib/fetchData";
 import { fetchMultiple } from "@/lib/fetchMultiple";
 import CharacterCard, {
   CharacterCardProps,
@@ -26,25 +26,23 @@ export default async function Episode({ params }: Params) {
   const { id } = resolvedParams;
 
   const data: Episode = await fetchData(`episode/${id}`);
-  const characters = await fetchMultiple(data.characters);
+  const characters = await fetchMultiple("character", data.characters);
+
+  const content =
+    characters.length > 0 ? (
+      characters.map((item: CharacterCardProps) => (
+        <CharacterCard key={item.id} {...item} />
+      ))
+    ) : (
+      <p>There are no characters.</p>
+    );
 
   return (
     <div>
       <span>{data.episode}</span>
       <span>{data.name}</span>
       <span>{data.air_date}</span>
-      <div className={styles.list}>
-        {characters.map((item: CharacterCardProps) => (
-          <CharacterCard
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            status={item.status}
-            species={item.species}
-            image={item.image}
-          />
-        ))}
-      </div>
+      <div className={styles.list}>{content}</div>
     </div>
   );
 }

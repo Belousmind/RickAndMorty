@@ -1,4 +1,4 @@
-import {fetchData} from "@/lib/fetchData";
+import { fetchData } from "@/lib/fetchData";
 import { fetchMultiple } from "@/lib/fetchMultiple";
 import CharacterCard, {
   CharacterCardProps,
@@ -20,30 +20,27 @@ type Location = {
 };
 
 export default async function Location({ params }: Params) {
-
-  const resolvedParams = await params;
+  const resolvedParams = params;
   const { id } = resolvedParams;
 
   const data: Location = await fetchData(`location/${id}`);
-  const residents = await fetchMultiple(data.residents);
+  const residents = await fetchMultiple("character", data.residents);
+
+  const content =
+    residents.length > 0 ? (
+      residents.map((item: CharacterCardProps) => (
+        <CharacterCard key={item.id} {...item} />
+      ))
+    ) : (
+      <p>There are no characters.</p>
+    );
 
   return (
     <div className={styles.container}>
       <h1>Name: {data.name}</h1>
       <span>Type: {data.type}</span>
       <span>Dimension: {data.dimension}</span>
-      <div className="list">
-        {residents.map((item: CharacterCardProps) => (
-          <CharacterCard
-            key={item.id}
-            name={item.name}
-            status={item.status}
-            id={item.id}
-            species={item.species}
-            image={item.image}
-          />
-        ))}
-      </div>
+      <div className="list">{content}</div>
     </div>
   );
 }

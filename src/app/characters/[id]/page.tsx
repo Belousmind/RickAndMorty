@@ -1,9 +1,11 @@
-import {fetchData} from "@/lib/fetchData";
+import { fetchData } from "@/lib/fetchData";
 import { fetchMultiple } from "@/lib/fetchMultiple";
 import Link from "next/link";
 import EpisodeCard, {
   EpisodeCardProps,
 } from "@/components/episode-card/episode-card";
+import extractDigits from "@/utils/extract-digits";
+import NamedLink from "@/components/named-link/named-link";
 
 type Params = {
   params: {
@@ -31,21 +33,13 @@ type Character = {
   url: string;
 };
 
-// оказывается у некоторых возвращается unknown, поэтому нужна проверка
-function notNumber(str: string) {
-  return str.replace(/[^0-9]/g, "");
-}
-
 export default async function Character({ params }: Params) {
   const resolvedParams = await params;
   const { id } = resolvedParams;
-  // const { id } = params;
 
   const data: Character = await fetchData(`character/${id}`);
 
-  const episodes = await fetchMultiple(data.episode);
-  // console.log(notNumber(data.location.url), notNumber(data.origin.url))
-  console.log(data);
+  const episodes = await fetchMultiple("episode", data.episode);
 
   return (
     <div>
@@ -56,16 +50,20 @@ export default async function Character({ params }: Params) {
       <p>Type: {data.type || "Unknow"}</p>
       <p>Gender: {data.gender}</p>
       <p>
-        Origin:{" "}
-        <Link href={`/locations/${notNumber(data.location.url)}`}>
-          {data.origin.name} [ ↗ ]
-        </Link>
+        Origin:
+        <NamedLink
+          name={data.origin.name}
+          url={data.origin.url}
+          basePath="/locations"
+        />
       </p>
       <p>
-        Location:{" "}
-        <Link href={`/locations/${notNumber(data.origin.url)}`}>
-          {data.location.name} [ ↗ ]
-        </Link>
+        Location:
+        <NamedLink
+          name={data.location.name}
+          url={data.location.url}
+          basePath="/locations"
+        />
       </p>
       <div className="list">
         {episodes.map((item: EpisodeCardProps) => (
