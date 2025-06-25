@@ -20,11 +20,29 @@ export default function CharacterCard({
 }: CharacterCardProps) {
   const pathname = usePathname();
   return (
-    <Link className={styles['character-card']} href={`/characters/${id.toString()}`}>
-      <img className={styles['character-img']}  src={image} alt={name} />
-      <h3 className={styles.title}>Name: {name}</h3>
-      <span>Status: {status}</span>
-      <span>Spacies: {species}</span>
+    <Link
+      className={styles["character-card"]}
+      href={`/characters/${id.toString()}`}
+    >
+      <img className={styles["character-img"]} src={image} alt={name} />
+
+      <Text label="Name:" text={name} />
+      <Text label="Status:" text={status} />
+      <Text label="Spacies:" text={species} />
     </Link>
+  );
+}
+
+type Props = {
+  label: string;
+  text: string;
+};
+
+function Text({ label, text }: Props) {
+  return (
+    <p className={styles.label}>
+      {label}
+      <span className={styles.text}>{text}</span>
+    </p>
   );
 }

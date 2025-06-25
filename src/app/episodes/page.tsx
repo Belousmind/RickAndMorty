@@ -18,12 +18,7 @@ export default async function EpisodesPage({ searchParams }: Props) {
       <h1>All Episodes</h1>
       <div className={styles.list}>
         {data.results.map((item: EpisodeCardProps) => (
-          <EpisodeCard
-            key={item.id}
-            name={item.name}
-            episode={item.episode}
-            id={item.id}
-          />
+          <EpisodeCard key={item.id} {...item} />
         ))}
       </div>
       <Pagination

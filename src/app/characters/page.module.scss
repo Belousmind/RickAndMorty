@@ -1,5 +1,12 @@
 .list {
   display: flex;
   flex-wrap: wrap;
+  // align-items: center;
+  justify-content: center;
   gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+
+  // align-items: stretch;
+  // grid-auto-rows: 1fr;
 }

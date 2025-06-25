@@ -1,26 +1,18 @@
 import OverviewCard from "@/components/overview-card/overview-card";
 import { fetchCounts } from "@/lib/fetchCounts";
-import styles from './main.module.scss'
+import styles from "./main.module.scss";
 
 export default async function Home() {
+  
   const cards = await fetchCounts();
 
   return (
     <>
       <h1 className={styles.title}>Rick & Morty Universe</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ab error,
-        laboriosam ducimus voluptates soluta dolor eius tempore corporis maxime,
-        eum iusto beatae sunt natus, facilis obcaecati voluptas quam ratione.
-      </p>
-      <div style={{display: "flex", gap: 8}}>
+
+      <div>
         {cards.map((card) => (
-          <OverviewCard
-            key={card.route}
-            title={card.title}
-            amount={card.amount}
-            route={card.route}
-          />
+          <OverviewCard key={card.route} {...card} />
         ))}
       </div>
     </>

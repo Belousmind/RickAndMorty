@@ -7,7 +7,7 @@ const Header = () => {
       <nav>
         <ul className={styles['nav-list']}>
           <li>
-            <Link href="/">main</Link>
+            <Link href="/">home</Link>
           </li>
           <li>
             <Link href="/characters">characters</Link>

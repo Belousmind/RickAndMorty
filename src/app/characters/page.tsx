@@ -22,14 +22,7 @@ export default async function CharactersPage({ searchParams }: Props) {
       <Search placeholder="Search character" />
       <div className={styles.list}>
         {data.results.map((item: CharacterCardProps) => (
-          <CharacterCard
-            key={item.id}
-            name={item.name}
-            status={item.status}
-            species={item.species}
-            image={item.image}
-            id={item.id}
-          />
+          <CharacterCard key={item.id} {...item} />
         ))}
       </div>
       <Pagination

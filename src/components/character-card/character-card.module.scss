@@ -1,19 +1,42 @@
 .character-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+
   gap: 12px;
   text-decoration: none;
   color: black;
   padding: 12px 8px;
-  border: 1px solid black;
+  border: 1px solid rgb(97, 97, 97);
+  width: 180px;
 }
 
 .character-img {
-  width: 120px;
+  width: 100%;
   height: 120px;
   object-fit: cover;
 }
 
 .title {
   margin: 0;
+}
+
+.label {
+  font-size: 10px;
+  color: rgb(135, 135, 135);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.text {
+  font-size: 18px;
+  color: rgb(50, 50, 50);
+  text-transform: capitalize;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // min-width: 0;
+  width: calc(180px - 16px);
 }

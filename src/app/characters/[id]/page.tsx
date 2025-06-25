@@ -1,11 +1,11 @@
 import { fetchData } from "@/lib/fetchData";
 import { fetchMultiple } from "@/lib/fetchMultiple";
-import Link from "next/link";
 import EpisodeCard, {
   EpisodeCardProps,
 } from "@/components/episode-card/episode-card";
-import extractDigits from "@/utils/extract-digits";
 import NamedLink from "@/components/named-link/named-link";
+
+import styles from "./style.module.scss";
 
 type Params = {
   params: {
@@ -45,11 +45,19 @@ export default async function Character({ params }: Params) {
     <div>
       <img src={data.image} alt={data.name} />
       <h1>{data.name}</h1>
-      <p>Status: {data.status}</p>
-      <p>Species: {data.species}</p>
-      <p>Type: {data.type || "Unknow"}</p>
-      <p>Gender: {data.gender}</p>
-      <p>
+      <p className={styles.title}>
+        Status: <span className={styles.subtitle}>{data.status}</span>
+      </p>
+      <p className={styles.title}>
+        Species: <span className={styles.subtitle}>{data.species}</span>{" "}
+      </p>
+      <p className={styles.title}>
+        Type: <span className={styles.subtitle}>{data.type || "Unknow"}</span>
+      </p>
+      <p className={styles.title}>
+        Gender: <span className={styles.subtitle}>{data.gender}</span>
+      </p>
+      <p className={styles.title}>
         Origin:
         <NamedLink
           name={data.origin.name}

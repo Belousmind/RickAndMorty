@@ -17,12 +17,7 @@ export default async function LocationPage({ searchParams }: Props) {
       <h1>All Location</h1>
       <div className="list">
         {data.results.map((item: LocationCardProps) => (
-          <LocationCard
-            key={item.id}
-            name={item.name}
-            id={item.id}
-            type={item.type}
-          />
+          <LocationCard key={item.id} {...item} />
         ))}
       </div>
       <Pagination
