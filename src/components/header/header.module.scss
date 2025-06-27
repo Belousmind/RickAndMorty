@@ -1,5 +1,17 @@
+@use "@/assets/styles/mixins" as *;
+@use "@/assets/styles/variables" as *;
+
 .nav-list {
-  display: flex;
+  @include flex-center;
+
   gap: 1rem;
   list-style: none;
+  padding: 0;
+  margin: $spacing-200 0;
+}
+
+.link {
+  @include link-reset;
+  text-transform: capitalize;
+  margin: 0;
 }

@@ -1,11 +1,15 @@
+@use "@/assets/styles/mixins" as *;
+@use "@/assets/styles/variables" as *;
+
 .character-card {
+  @include link-reset;
+
   display: grid;
 
   gap: 12px;
-  text-decoration: none;
-  color: black;
+
   padding: 12px 8px;
-  border: 1px solid rgb(97, 97, 97);
+  border: 1px solid $grey-500;
   width: 180px;
 }
 
@@ -37,6 +41,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  // min-width: 0;
+
   width: calc(180px - 16px);
 }

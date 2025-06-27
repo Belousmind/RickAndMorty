@@ -1,11 +1,22 @@
+@use "@/assets/styles/mixins" as *;
 @use "@/assets/styles/variables" as *;
 
 body {
   font-family: $font-family-primary;
   margin: 0;
   padding: 0;
+  color: $grey-500;
+  main {
+    padding: $spacing-250 $spacing-150;
+  }
 }
 
 .title {
   margin: 0;
+}
+
+.overview-cards {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 1rem;
 }

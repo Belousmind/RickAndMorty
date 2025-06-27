@@ -1,27 +1,19 @@
 import Link from "next/link";
-import styles from './header.module.scss'
+import styles from "./header.module.scss";
+import { NAVIGATION_DATA } from "@/constants";
 
-const Header = () => {
+export default function Header() {
   return (
     <header>
       <nav>
-        <ul className={styles['nav-list']}>
-          <li>
-            <Link href="/">home</Link>
-          </li>
-          <li>
-            <Link href="/characters">characters</Link>
-          </li>
-          <li>
-            <Link href="/episodes">episodes</Link>
-          </li>
-          <li>
-            <Link href="/locations">locations</Link>
-          </li>
+        <ul className={styles["nav-list"]}>
+          {NAVIGATION_DATA.map((item, index) => (
+            <Link key={index} href={item.link} className={styles.link}>
+              {item.label}
+            </Link>
+          ))}
         </ul>
       </nav>
     </header>
   );
-};
-
-export default Header;
+}

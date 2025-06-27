@@ -1,13 +1,17 @@
+@use "@/assets/styles/mixins" as *;
+@use "@/assets/styles/variables" as *;
+
 .card {
-  display: block;
-  border: 1px solid grey;
-  // border-radius: 12px;
+  @include link-reset;
+
+
+  border: 1px solid $grey-500;
+
   padding: 8px 12px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  text-decoration: none;
-  // color: white
+
 }
 
 .title {

@@ -1,0 +1,13 @@
+@use "./variables" as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin link-reset {
+  text-decoration: none;
+  color: $grey-500;
+  cursor: pointer;
+}
