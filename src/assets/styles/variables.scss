@@ -1,0 +1,36 @@
+@use "./fonts.scss" as *;
+
+$font-family-primary: "Fira Code", monospace;
+$font-family-secondary: "Inconsolata", monospace;
+
+$font-size-60: 3.75rem; // 60px
+$font-size-40: 2.5rem; // 40px
+$font-size-30: 1.875rem; // 30px
+$font-size-24: 1.5rem; // 24px
+$font-size-22: 1.375rem; // 22px
+$font-size-20: 1.25rem; // 20px
+$font-size-18: 1.125rem; // 18px
+$font-size-14: 0.875rem; // 14px
+$font-size-12: 0.75rem; // 12px
+
+$line-height-110: 110%;
+$line-height-120: 120%;
+$letter-spacing-minus-1: -1px;
+$letter-spacing-minus-0-5: -0.5px;
+$letter-spacing-minus-0-2: -0.2px;
+$letter-spacing-minus-0-3: -0.3px;
+
+$spacing-0: 0;
+$spacing-025: 2px;
+$spacing-050: 4px;
+$spacing-075: 6px;
+$spacing-100: 8px;
+$spacing-150: 12px;
+$spacing-200: 16px;
+$spacing-250: 20px;
+$spacing-300: 24px;
+$spacing-400: 32px;
+$spacing-500: 40px;
+$spacing-600: 48px;
+$spacing-800: 64px;
+$spacing-1000: 80px;
