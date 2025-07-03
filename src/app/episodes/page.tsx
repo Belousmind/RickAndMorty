@@ -1,4 +1,4 @@
-import { fetchPage } from "@/lib/fetchData";
+import { fetchPage } from "@/lib";
 import EpisodeCard, {
   EpisodeCardProps,
 } from "@/components/episode-card/episode-card";

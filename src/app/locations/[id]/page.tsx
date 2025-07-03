@@ -1,5 +1,5 @@
-import { fetchData } from "@/lib/fetchData";
-import { fetchMultiple } from "@/lib/fetchMultiple";
+import { fetchData } from "@/lib/fetch-data";
+import { fetchMultiple } from "@/lib/fetch-multiple";
 import CharacterCard, {
   CharacterCardProps,
 } from "@/components/character-card/character-card";

@@ -1,9 +1,6 @@
-import { fetchData } from "@/lib/fetchData";
-import { fetchMultiple } from "@/lib/fetchMultiple";
-import EpisodeCard, {
-  EpisodeCardProps,
-} from "@/components/episode-card/episode-card";
-import NamedLink from "@/components/named-link/named-link";
+import { fetchData, fetchMultiple } from "@/lib";
+import { EpisodeCard, NamedLink } from "@/components";
+import { EpisodeCardProps } from "@/components/episode-card/episode-card";
 
 import styles from "./style.module.scss";
 

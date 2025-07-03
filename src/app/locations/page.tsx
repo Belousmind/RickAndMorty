@@ -1,8 +1,6 @@
-import { fetchPage } from "@/lib/fetchData";
-import LocationCard, {
-  LocationCardProps,
-} from "@/components/location-card/location-card";
-import Pagination from "@/components/pagination/pagination";
+import { fetchPage } from "@/lib";
+import { LocationCard, Pagination } from "@/components";
+import { LocationCardProps } from "@/components/location-card/location-card";
 
 type Props = {
   searchParams: { page?: string };

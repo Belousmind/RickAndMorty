@@ -13,7 +13,7 @@ export default function Pagination({
   currentPage,
   totalPages,
   basePath,
-  maxVisiblePages = 5,
+  maxVisiblePages = 3,
 }: PaginationProps) {
   const router = useRouter();
   const searchParams = useSearchParams();

@@ -1,8 +1,7 @@
-import { fetchData } from "@/lib/fetchData";
-import { fetchMultiple } from "@/lib/fetchMultiple";
-import CharacterCard, {
-  CharacterCardProps,
-} from "@/components/character-card/character-card";
+import { fetchData, fetchMultiple } from "@/lib";
+import { CharacterCard } from "@/components";
+import { CharacterCardProps } from "@/components/character-card/character-card";
+
 import styles from "./page.module.scss";
 
 type Params = {

@@ -1,10 +1,9 @@
-import CharacterCard, {
-  CharacterCardProps,
-} from "@/components/character-card/character-card";
-import { fetchSearch } from "@/lib/fetchData";
+import { fetchSearch } from "@/lib/fetch-data";
 import styles from "./page.module.scss";
-import Pagination from "@/components/pagination/pagination";
-import Search from "@/components/search/search";
+
+import { CharacterCard, Pagination, Search } from "@/components";
+
+import type { CharacterCardProps } from "@/components/character-card/character-card";
 
 type Props = {
   searchParams: { page?: string; query?: string };

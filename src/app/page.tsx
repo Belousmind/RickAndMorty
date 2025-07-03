@@ -1,5 +1,6 @@
-import OverviewCard from "@/components/overview-card/overview-card";
-import { fetchCounts } from "@/lib/fetchCounts";
+import { OverviewCard } from "@/components";
+import { fetchCounts } from "@/lib";
+
 import styles from "./main.module.scss";
 
 export default async function Home() {
