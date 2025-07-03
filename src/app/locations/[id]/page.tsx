@@ -11,7 +11,7 @@ type Params = {
   };
 };
 
-type Location = {
+type LocationType = {
   id: number;
   name: string;
   type: string;
@@ -23,7 +23,7 @@ export default async function Location({ params }: Params) {
   const resolvedParams = params;
   const { id } = resolvedParams;
 
-  const data: Location = await fetchData(`location/${id}`);
+  const data: LocationType = await fetchData(`location/${id}`);
   const residents = await fetchMultiple("character", data.residents);
 
   const content =
