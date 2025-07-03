@@ -1,15 +1,11 @@
-"use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import type { CharacterApi } from "@/types";
 import styles from "./character-card.module.scss";
 
-export type CharacterCardProps = {
-  id: number;
-  name: string;
-  status: string;
-  species: string;
-  image: string;
-};
+type CharacterCardProps = Pick<
+  CharacterApi,
+  "id" | "name" | "status" | "species" | "image"
+>;
 
 export default function CharacterCard({
   id,
@@ -18,7 +14,6 @@ export default function CharacterCard({
   species,
   image,
 }: CharacterCardProps) {
-  const pathname = usePathname();
   return (
     <Link
       className={styles["character-card"]}

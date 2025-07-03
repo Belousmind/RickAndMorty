@@ -1,9 +1,7 @@
+import { EpisodeCard, Pagination } from "@/components";
 import { fetchPage } from "@/lib";
-import EpisodeCard, {
-  EpisodeCardProps,
-} from "@/components/episode-card/episode-card";
+import type { EpisodeApiResponse } from "@/types";
 import styles from "./page.module.scss";
-import Pagination from "@/components/pagination/pagination";
 
 type Props = {
   searchParams: { page?: string };
@@ -11,13 +9,13 @@ type Props = {
 
 export default async function EpisodesPage({ searchParams }: Props) {
   const page = Number(searchParams.page) || 1;
-  const data = await fetchPage("episode", page);
+  const data: EpisodeApiResponse = await fetchPage("episode", page);
 
   return (
     <>
       <h1>All Episodes</h1>
       <div className={styles.list}>
-        {data.results.map((item: EpisodeCardProps) => (
+        {data.results.map((item) => (
           <EpisodeCard key={item.id} {...item} />
         ))}
       </div>

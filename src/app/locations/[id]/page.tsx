@@ -1,8 +1,6 @@
-import { fetchData } from "@/lib/fetch-data";
-import { fetchMultiple } from "@/lib/fetch-multiple";
-import CharacterCard, {
-  CharacterCardProps,
-} from "@/components/character-card/character-card";
+import { fetchData, fetchMultiple } from "@/lib";
+import { CharacterCard } from "@/components";
+import type { LocationApi, CharacterApi } from "@/types";
 import styles from "./page.module.scss";
 
 type Params = {
@@ -11,26 +9,19 @@ type Params = {
   };
 };
 
-type LocationType = {
-  id: number;
-  name: string;
-  type: string;
-  dimension: string;
-  residents: string[];
-};
-
 export default async function Location({ params }: Params) {
   const resolvedParams = params;
   const { id } = resolvedParams;
 
-  const data: LocationType = await fetchData(`location/${id}`);
-  const residents = await fetchMultiple("character", data.residents);
+  const data: LocationApi = await fetchData(`location/${id}`);
+  const residents: CharacterApi[] = await fetchMultiple(
+    "character",
+    data.residents
+  );
 
   const content =
     residents.length > 0 ? (
-      residents.map((item: CharacterCardProps) => (
-        <CharacterCard key={item.id} {...item} />
-      ))
+      residents.map((item) => <CharacterCard key={item.id} {...item} />)
     ) : (
       <p>There are no characters.</p>
     );

@@ -1,17 +1,10 @@
-"use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import type { LocationApi } from "@/types";
 import styles from "./location-card.module.scss";
 
-export type LocationCardProps = {
-  id: number;
-  name: string;
-  type: string;
-};
+type LocationCardProps = Pick<LocationApi, "id" | "name" | "type">;
 
 export default function LocationCard({ id, name, type }: LocationCardProps) {
-  const pathname = usePathname();
-
   return (
     <Link
       className={styles["location-card"]}

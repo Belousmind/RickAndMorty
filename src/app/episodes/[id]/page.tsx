@@ -1,6 +1,7 @@
 import { fetchData, fetchMultiple } from "@/lib";
 import { CharacterCard } from "@/components";
-import { CharacterCardProps } from "@/components/character-card/character-card";
+
+import type { EpisodeApi, CharacterApi } from "@/types";
 
 import styles from "./page.module.scss";
 
@@ -10,28 +11,19 @@ type Params = {
   };
 };
 
-type Episode = {
-  id: number;
-  name: string;
-  air_date: string;
-  episode: string;
-  characters: string[];
-  url: string;
-  created: string;
-};
-
 export default async function Episode({ params }: Params) {
   const resolvedParams = await params;
   const { id } = resolvedParams;
 
-  const data: Episode = await fetchData(`episode/${id}`);
-  const characters = await fetchMultiple("character", data.characters);
+  const data: EpisodeApi = await fetchData(`episode/${id}`);
+  const characters: CharacterApi[] = await fetchMultiple(
+    "character",
+    data.characters
+  );
 
   const content =
     characters.length > 0 ? (
-      characters.map((item: CharacterCardProps) => (
-        <CharacterCard key={item.id} {...item} />
-      ))
+      characters.map((item) => <CharacterCard key={item.id} {...item} />)
     ) : (
       <p>There are no characters.</p>
     );
