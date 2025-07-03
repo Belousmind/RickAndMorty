@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { CharacterApi } from "@/types";
+import { LabelText } from "@/components";
 import styles from "./character-card.module.scss";
 
 type CharacterCardProps = Pick<
@@ -21,23 +22,9 @@ export default function CharacterCard({
     >
       <img className={styles["character-img"]} src={image} alt={name} />
 
-      <Text label="Name:" text={name} />
-      <Text label="Status:" text={status} />
-      <Text label="Spacies:" text={species} />
+      <LabelText label="Name:" text={name} />
+      <LabelText label="Status:" text={status} />
+      <LabelText label="Spacies:" text={species} />
     </Link>
-  );
-}
-
-type Props = {
-  label: string;
-  text: string;
-};
-
-function Text({ label, text }: Props) {
-  return (
-    <p className={styles.label}>
-      {label}
-      <span className={styles.text}>{text}</span>
-    </p>
   );
 }

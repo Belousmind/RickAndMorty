@@ -9,7 +9,7 @@ type NamedLinkProps = {
 
 export default function NamedLink({ name, url, basePath }: NamedLinkProps) {
   if (!url || name.toLowerCase() === "unknown") {
-    return <span>{name}</span>;
+    return name;
   }
 
   const id = extractDigits(url);
