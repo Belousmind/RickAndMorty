@@ -5,13 +5,14 @@
   @include flex-center;
 
   gap: 1rem;
-  list-style: none;
   padding: 0;
   margin: $spacing-200 0;
+  list-style: none;
 }
 
 .link {
   @include link-reset;
-  text-transform: capitalize;
+
   margin: 0;
+  text-transform: capitalize;
 }

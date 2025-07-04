@@ -4,14 +4,11 @@
 .card {
   @include link-reset;
 
-
-  border: 1px solid $grey-500;
-
-  padding: 8px 12px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-
+  padding: 8px 12px;
+  border: 1px solid $grey-500;
 }
 
 .title {

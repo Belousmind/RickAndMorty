@@ -7,7 +7,7 @@
 }
 
 @mixin link-reset {
-  text-decoration: none;
   color: $grey-500;
+  text-decoration: none;
   cursor: pointer;
 }
