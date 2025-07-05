@@ -1,24 +1,24 @@
-import { ROUTES } from "./routes";
+import { ROUTES } from './routes';
 
 export const NAVIGATION_DATA = [
   {
     link: ROUTES.HOME,
-    label: "home",
+    label: 'home',
   },
   {
     link: ROUTES.CHARACTERS,
-    label: "characters",
+    label: 'characters',
   },
   {
     link: ROUTES.EPISODES,
-    label: "episodes",
+    label: 'episodes',
   },
   {
     link: ROUTES.LOCATIONS,
-    label: "locations",
+    label: 'locations',
   },
   {
     link: ROUTES.FAVORITES,
-    label: "favorites",
+    label: 'favorites',
   },
 ];

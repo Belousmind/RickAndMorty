@@ -1,22 +1,20 @@
-import { fetchData, fetchMultiple } from "@/lib";
-import { CharacterCard } from "@/components";
-import type { LocationApi, CharacterApi } from "@/types";
-import styles from "./page.module.scss";
+import { fetchData, fetchMultiple } from '@/lib';
+import { CharacterCard } from '@/components';
+import type { LocationApi, CharacterApi } from '@/types';
+import styles from './page.module.scss';
 
 type Params = {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 };
 
 export default async function Location({ params }: Params) {
-  const resolvedParams = params;
+  const resolvedParams = await params;
   const { id } = resolvedParams;
 
   const data: LocationApi = await fetchData(`location/${id}`);
   const residents: CharacterApi[] = await fetchMultiple(
-    "character",
-    data.residents
+    'character',
+    data.residents,
   );
 
   const content =

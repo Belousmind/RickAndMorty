@@ -8,10 +8,10 @@ export type Info = {
 export type CharacterApi = {
   id: number;
   name: string;
-  status: "Alive" | "Dead" | "unknown";
+  status: 'Alive' | 'Dead' | 'unknown';
   species: string;
   type: string;
-  gender: "Female" | "Male" | "Genderless" | "unknown";
+  gender: 'Female' | 'Male' | 'Genderless' | 'unknown';
   origin: {
     name: string;
     url: string;

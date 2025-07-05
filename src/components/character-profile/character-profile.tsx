@@ -1,7 +1,7 @@
-import { NamedLink, LabelText } from "@/components";
-import type { CharacterApi } from "@/types";
+import { NamedLink, LabelText } from '@/components';
+import type { CharacterApi } from '@/types';
 
-type CharacterProfileProps = Omit<CharacterApi, "url" | "created" | "episode">;
+type CharacterProfileProps = Omit<CharacterApi, 'url' | 'created' | 'episode'>;
 
 export default function CharacterProfile({
   image,
@@ -20,7 +20,7 @@ export default function CharacterProfile({
 
       <LabelText label="Status:" text={status} />
       <LabelText label="Species:" text={species} />
-      <LabelText label="Type:" text={type === "" ? "-" : type} />
+      <LabelText label="Type:" text={type === '' ? '-' : type} />
       <LabelText label="Gender:" text={gender} />
 
       <LabelText

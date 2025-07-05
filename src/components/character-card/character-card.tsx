@@ -1,11 +1,11 @@
-import Link from "next/link";
-import type { CharacterApi } from "@/types";
-import { LabelText } from "@/components";
-import styles from "./character-card.module.scss";
+import Link from 'next/link';
+import type { CharacterApi } from '@/types';
+import { LabelText } from '@/components';
+import styles from './character-card.module.scss';
 
 type CharacterCardProps = Pick<
   CharacterApi,
-  "id" | "name" | "status" | "species" | "image"
+  'id' | 'name' | 'status' | 'species' | 'image'
 >;
 
 export default function CharacterCard({
@@ -17,10 +17,10 @@ export default function CharacterCard({
 }: CharacterCardProps) {
   return (
     <Link
-      className={styles["character-card"]}
+      className={styles['character-card']}
       href={`/characters/${id.toString()}`}
     >
-      <img className={styles["character-img"]} src={image} alt={name} />
+      <img className={styles['character-img']} src={image} alt={name} />
 
       <LabelText label="Name:" text={name} />
       <LabelText label="Status:" text={status} />

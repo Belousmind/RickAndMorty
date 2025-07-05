@@ -6,4 +6,4 @@ export type {
   CharacterApiResponse,
   LocationApiResponse,
   EpisodeApiResponse,
-} from "./api";
+} from './api';

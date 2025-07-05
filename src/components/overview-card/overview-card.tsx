@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styles from "./overview-card.module.scss";
+import Link from 'next/link';
+import styles from './overview-card.module.scss';
 
 type OverviewCardProps = {
   title: string;

@@ -1,15 +1,18 @@
-import { EpisodeCard, Pagination } from "@/components";
-import { fetchPage } from "@/lib";
-import type { EpisodeApiResponse } from "@/types";
-import styles from "./page.module.scss";
+import { EpisodeCard, Pagination } from '@/components';
+import { fetchPage } from '@/lib';
+import type { EpisodeApiResponse } from '@/types';
+import styles from './page.module.scss';
 
 type Props = {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string; query?: string }>;
 };
 
 export default async function EpisodesPage({ searchParams }: Props) {
-  const page = Number(searchParams.page) || 1;
-  const data: EpisodeApiResponse = await fetchPage("episode", page);
+  const { page } = await searchParams;
+
+  const currentPage = page ?? '1';
+
+  const data: EpisodeApiResponse = await fetchPage('episode', currentPage);
 
   return (
     <>
@@ -20,7 +23,7 @@ export default async function EpisodesPage({ searchParams }: Props) {
         ))}
       </div>
       <Pagination
-        currentPage={page}
+        currentPage={currentPage}
         totalPages={data.info.pages}
         basePath="/episodes"
       />

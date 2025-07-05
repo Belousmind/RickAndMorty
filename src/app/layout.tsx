@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
-import { Header } from "@/components";
+import type { Metadata } from 'next';
+import { Header } from '@/components';
+
+import styles from './main.module.scss';
 
 export const metadata: Metadata = {
-  title: "Rick and Morty",
-  description: "",
+  title: 'Rick and Morty',
+  description: '',
   icons: {
-    icon: "/favicon.ico",
+    icon: '/favicon.ico',
   },
 };
 
@@ -16,9 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={styles.body}>
         <Header />
-        <main>{children}</main>
+        <main className={styles.main}>{children}</main>
       </body>
     </html>
   );

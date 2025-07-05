@@ -1,14 +1,16 @@
-import { fetchPage } from "@/lib";
-import { LocationCard, Pagination } from "@/components";
-import type { LocationApiResponse } from "@/types";
+import { fetchPage } from '@/lib';
+import { LocationCard, Pagination } from '@/components';
+import type { LocationApiResponse } from '@/types';
 
 type Props = {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 };
 
 export default async function LocationPage({ searchParams }: Props) {
-  const page = Number(searchParams.page) || 1;
-  const data: LocationApiResponse = await fetchPage("location", page);
+  const { page } = await searchParams;
+
+  const currentPage = page ?? '1';
+  const data: LocationApiResponse = await fetchPage('location', currentPage);
 
   return (
     <>
@@ -19,7 +21,7 @@ export default async function LocationPage({ searchParams }: Props) {
         ))}
       </div>
       <Pagination
-        currentPage={page}
+        currentPage={currentPage}
         totalPages={data.info.pages}
         basePath="/locations"
       />

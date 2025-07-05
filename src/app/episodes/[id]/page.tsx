@@ -1,14 +1,12 @@
-import { fetchData, fetchMultiple } from "@/lib";
-import { CharacterCard } from "@/components";
+import { fetchData, fetchMultiple } from '@/lib';
+import { CharacterCard } from '@/components';
 
-import type { EpisodeApi, CharacterApi } from "@/types";
+import type { EpisodeApi, CharacterApi } from '@/types';
 
-import styles from "./page.module.scss";
+import styles from './page.module.scss';
 
 type Params = {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 };
 
 export default async function Episode({ params }: Params) {
@@ -17,8 +15,8 @@ export default async function Episode({ params }: Params) {
 
   const data: EpisodeApi = await fetchData(`episode/${id}`);
   const characters: CharacterApi[] = await fetchMultiple(
-    "character",
-    data.characters
+    'character',
+    data.characters,
   );
 
   const content =

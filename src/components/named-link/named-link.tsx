@@ -1,5 +1,5 @@
-import Link from "next/link";
-import extractDigits from "@/utils/extract-digits";
+import Link from 'next/link';
+import extractDigits from '@/utils/extract-digits';
 
 type NamedLinkProps = {
   name: string;
@@ -8,7 +8,7 @@ type NamedLinkProps = {
 };
 
 export default function NamedLink({ name, url, basePath }: NamedLinkProps) {
-  if (!url || name.toLowerCase() === "unknown") {
+  if (!url || name.toLowerCase() === 'unknown') {
     return name;
   }
 

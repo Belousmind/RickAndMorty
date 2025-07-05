@@ -1,4 +1,4 @@
-const BASE_URL = "https://rickandmortyapi.com/api/";
+const BASE_URL = 'https://rickandmortyapi.com/api/';
 
 export async function fetchData(endpoint: string) {
   try {

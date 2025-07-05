@@ -1,4 +1,4 @@
-import styles from './label-text.module.scss'
+import styles from './label-text.module.scss';
 
 type LabelTextProps = {
   label: string;
